@@ -18,3 +18,7 @@ Array((-5..5)).each { |x| puts "#{x} in list? : #{list.contains?(x)}" }
 p list.find(0)
 p list.find(3)
 p list.to_s
+p list.remove_at(1)
+p list.to_s
+p list.remove_at(0)
+p list.to_s

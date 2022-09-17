@@ -120,5 +120,32 @@ class LinkedList
 
   def insert_at(value, index); end
 
-  def remove_at(index); end
+  def remove_at(index)
+    return nil if @head.nil?
+    return nil if index > size - 1
+
+    if index.zero?
+      removed = @head
+      @head = @head.next_node
+      return removed
+    end
+
+    previous = @head
+    current = @head
+    i = 0
+    loop do
+      break if current.next_node.nil? || index == i
+
+      previous = current
+      current = current.next_node
+      i += 1
+    end
+    if current.next_node.nil?
+      removed = nil
+    else
+      removed = current.next_node
+      previous.next_node = current.next_node
+    end
+    removed
+  end
 end
