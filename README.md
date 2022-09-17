@@ -31,6 +31,6 @@ The following methods are implemented in the linked list class:
 7. `#pop` removes the last element from the list
 8. `#contains?(value)` returns true if the passed in value is in the list and otherwise returns false.
 9. `#find(value)` returns the index of the node containing value, or nil if not found.
-10. `#to_s` represent LinkedList objects as strings, so you can print them out and preview them in the console. The format should be: `( value ) -you> ( value ) -> ( value ) -> nil`
+10. `#to_s` represent LinkedList objects as strings, so you can print them out and preview them in the console. The format should be: `( value ) -> ( value ) -> ( value ) -> nil`
 11. `#insert_at(value, index)` that inserts a new node with the provided `value` at the given `index`.
 12. `#remove_at(index)` that removes the node at the given `index`.

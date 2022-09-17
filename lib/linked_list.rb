@@ -96,6 +96,17 @@ class LinkedList
     end
     i
   end
+
+  def to_s
+    # The format should be: `( value ) -you> ( value ) -> ( value ) -> nil`
+    str = ''
+    current = @head
+    until current.nil?
+      str << "( #{current.value} ) => "
+      current = current.next_node
+    end
+    str << 'nil'
+  end
 end
 
 # Node class
@@ -109,7 +120,7 @@ class Node
 end
 
 list = LinkedList.new(Node.new(1))
-list.append(2)
+list.append(5)
 list.append(3)
 list.append(4)
 list.prepend(0)
@@ -125,3 +136,4 @@ p list
 Array((-5..5)).each { |x| puts "#{x} in list? : #{list.contains?(x)}" }
 p list.find(0)
 p list.find(3)
+p list.to_s
