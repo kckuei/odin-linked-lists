@@ -1,5 +1,5 @@
 # Linked Lists
-My implementation of linked lists in `ruby` as implemented with OOP in two classes: `LinkedList` and `Node`.
+My OOP implementation of linked lists in `ruby`.
 
 ### Structure
 Linked lists are on of the most basic and fundamental data structures in computer science. The principal benefit of a linked list over a conventional array is that the list elements can easily be inserted or removed without reallocation of any other elements.
