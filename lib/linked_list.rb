@@ -1,3 +1,13 @@
+# Node class
+class Node
+  attr_accessor :value, :next_node
+
+  def initialize(value = nil)
+    @value = value
+    @next_node = nil
+  end
+end
+
 # LinkedList class
 class LinkedList
   attr_reader :head
@@ -107,33 +117,8 @@ class LinkedList
     end
     str << 'nil'
   end
+
+  def insert_at(value, index); end
+
+  def remove_at(index); end
 end
-
-# Node class
-class Node
-  attr_accessor :value, :next_node
-
-  def initialize(value = nil)
-    @value = value
-    @next_node = nil
-  end
-end
-
-list = LinkedList.new(Node.new(1))
-list.append(5)
-list.append(3)
-list.append(4)
-list.prepend(0)
-p list
-p list.size
-p list.head
-p list.tail
-p list.at(3)
-p list.at(20)
-p list
-p list.pop
-p list
-Array((-5..5)).each { |x| puts "#{x} in list? : #{list.contains?(x)}" }
-p list.find(0)
-p list.find(3)
-p list.to_s
