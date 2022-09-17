@@ -75,9 +75,27 @@ class LinkedList
     removed
   end
 
-  def contains?; end
+  def contains?(value)
+    current = @head
+    until current.nil?
+      return true if current.value == value
 
-  def find; end
+      current = current.next_node
+    end
+    false
+  end
+
+  def find(value)
+    current = @head
+    i = 0
+    until current.nil?
+      break if current.value == value
+
+      current = current.next_node
+      i += 1
+    end
+    i
+  end
 end
 
 # Node class
@@ -95,7 +113,6 @@ list.append(2)
 list.append(3)
 list.append(4)
 list.prepend(0)
-
 p list
 p list.size
 p list.head
@@ -105,3 +122,6 @@ p list.at(20)
 p list
 p list.pop
 p list
+Array((-5..5)).each { |x| puts "#{x} in list? : #{list.contains?(x)}" }
+p list.find(0)
+p list.find(3)
