@@ -211,33 +211,54 @@ class LinkedList
 end
 ```
 
-**Example**
+**Example Usage**
 ```
+# Creates a linked list (0)->(1)->(5)->(3)->(4)
 ist = LinkedList.new(Node.new(1))
 list.append(5)
 list.append(3)
 list.append(4)
 list.prepend(0)
-p list
-p list.size
+
+# Print the linked list and size
+puts list.to_s
+puts list.size
+
+# Return head and tail
 p list.head
 p list.tail
+
+# Return the node at index 3 and 20
 p list.at(3)
 p list.at(20)
-p list
-p list.pop
-p list
+
+# Pop a node off the end
+puts list.to_s
+list.pop
+puts list.to_s
+
+# Check which values are present
 Array((-5..5)).each { |x| puts "#{x} in list? : #{list.contains?(x)}" }
+
+# Find the index of first matching value
 p list.find(0)
 p list.find(3)
+
+# Remove the value at index 1
 p list.to_s
-p list.remove_at(1)
+list.remove_at(1)
 p list.to_s
+
+# Remove the value at index 0
 p list.remove_at(0)
 p list.to_s
+
+# Insert a value 777 at index 10 (new linked-list should have size 11)
 p list.insert_at(777, 10)
 p list.to_s
 p list.size
+
+# Insert 4 @ 6, 3 @ 2, 55 @ 1, and 10 @ 0
 p list.insert_at(4, 6)
 p list.insert_at(3, 2)
 p list.insert_at(55, 1)
@@ -247,15 +268,14 @@ p list.to_s
 
 **Example Output**
 ```
-#<LinkedList:0x00007f318de01648 @head=#<Node:0x00007f318de01440 @value=0, @next_node=#<Node:0x00007f318de01738 @value=1, @next_node=#<Node:0x00007f318de01558 @value=5, @next_node=#<Node:0x00007f318de014e0 @value=3, @next_node=#<Node:0x00007f318de014b8 @value=4, @next_node=nil>>>>>>
+( 0 ) => ( 1 ) => ( 5 ) => ( 3 ) => ( 4 ) => nil
 5
-#<Node:0x00007f318de01440 @value=0, @next_node=#<Node:0x00007f318de01738 @value=1, @next_node=#<Node:0x00007f318de01558 @value=5, @next_node=#<Node:0x00007f318de014e0 @value=3, @next_node=#<Node:0x00007f318de014b8 @value=4, @next_node=nil>>>>>
-#<Node:0x00007f318de014b8 @value=4, @next_node=nil>
+#<Node:0x00007f25c936cef0 @value=0, @next_node=#<Node:0x00007f25c936d170 @value=1, @next_node=#<Node:0x00007f25c936d008 @value=5, @next_node=#<Node:0x00007f25c936cf90 @value=3, @next_node=#<Node:0x00007f25c936cf68 @value=4, @next_node=nil>>>>>
+#<Node:0x00007f25c936cf68 @value=4, @next_node=nil>
 3
 nil
-#<LinkedList:0x00007f318de01648 @head=#<Node:0x00007f318de01440 @value=0, @next_node=#<Node:0x00007f318de01738 @value=1, @next_node=#<Node:0x00007f318de01558 @value=5, @next_node=#<Node:0x00007f318de014e0 @value=3, @next_node=#<Node:0x00007f318de014b8 @value=4, @next_node=nil>>>>>>
-#<Node:0x00007f318de014b8 @value=4, @next_node=nil>
-#<LinkedList:0x00007f318de01648 @head=#<Node:0x00007f318de01440 @value=0, @next_node=#<Node:0x00007f318de01738 @value=1, @next_node=#<Node:0x00007f318de01558 @value=5, @next_node=#<Node:0x00007f318de014e0 @value=3, @next_node=nil>>>>>
+( 0 ) => ( 1 ) => ( 5 ) => ( 3 ) => ( 4 ) => nil
+( 0 ) => ( 1 ) => ( 5 ) => ( 3 ) => nil
 -5 in list? : false
 -4 in list? : false
 -3 in list? : false
@@ -270,16 +290,15 @@ nil
 0
 3
 "( 0 ) => ( 1 ) => ( 5 ) => ( 3 ) => nil"
-#<Node:0x00007f318de01558 @value=5, @next_node=#<Node:0x00007f318de014e0 @value=3, @next_node=nil>>
 "( 0 ) => ( 5 ) => ( 3 ) => nil"
-#<Node:0x00007f318de01440 @value=0, @next_node=#<Node:0x00007f318de01558 @value=5, @next_node=#<Node:0x00007f318de014e0 @value=3, @next_node=nil>>>
+#<Node:0x00007f25c936cef0 @value=0, @next_node=#<Node:0x00007f25c936d008 @value=5, @next_node=#<Node:0x00007f25c936cf90 @value=3, @next_node=nil>>>
 "( 5 ) => ( 3 ) => nil"
 nil
 "( 5 ) => ( 3 ) => ( nil ) => ( nil ) => ( nil ) => ( nil ) => ( nil ) => ( nil ) => ( nil ) => ( nil ) => ( 777 ) => nil"
 11
-#<Node:0x00007f318de09d98 @value=nil, @next_node=#<Node:0x00007f318de09d48 @value=nil, @next_node=#<Node:0x00007f318de09cf8 @value=nil, @next_node=#<Node:0x00007f318de09af0 @value=777, @next_node=nil>>>>
-#<Node:0x00007f318de0a0b8 @value=nil, @next_node=#<Node:0x00007f318de0a040 @value=nil, @next_node=#<Node:0x00007f318de09fc8 @value=nil, @next_node=#<Node:0x00007f318de09258 @value=4, @next_node=#<Node:0x00007f318de09d98 @value=nil, @next_node=#<Node:0x00007f318de09d48 @value=nil, @next_node=#<Node:0x00007f318de09cf8 @value=nil, @next_node=#<Node:0x00007f318de09af0 @value=777, @next_node=nil>>>>>>>>
-#<Node:0x00007f318de08e70 @value=3, @next_node=#<Node:0x00007f318de0a0b8 @value=nil, @next_node=#<Node:0x00007f318de0a040 @value=nil, @next_node=#<Node:0x00007f318de09fc8 @value=nil, @next_node=#<Node:0x00007f318de09258 @value=4, @next_node=#<Node:0x00007f318de09d98 @value=nil, @next_node=#<Node:0x00007f318de09d48 @value=nil, @next_node=#<Node:0x00007f318de09cf8 @value=nil, @next_node=#<Node:0x00007f318de09af0 @value=777, @next_node=nil>>>>>>>>>
+#<Node:0x00007f25c9376860 @value=nil, @next_node=#<Node:0x00007f25c9376810 @value=nil, @next_node=#<Node:0x00007f25c93767e8 @value=nil, @next_node=#<Node:0x00007f25c93766f8 @value=777, @next_node=nil>>>>
+#<Node:0x00007f25c9376928 @value=nil, @next_node=#<Node:0x00007f25c9376900 @value=nil, @next_node=#<Node:0x00007f25c93768b0 @value=nil, @next_node=#<Node:0x00007f25c9375a28 @value=4, @next_node=#<Node:0x00007f25c9376860 @value=nil, @next_node=#<Node:0x00007f25c9376810 @value=nil, @next_node=#<Node:0x00007f25c93767e8 @value=nil, @next_node=#<Node:0x00007f25c93766f8 @value=777, @next_node=nil>>>>>>>>
+#<Node:0x00007f25c9375398 @value=3, @next_node=#<Node:0x00007f25c9376928 @value=nil, @next_node=#<Node:0x00007f25c9376900 @value=nil, @next_node=#<Node:0x00007f25c93768b0 @value=nil, @next_node=#<Node:0x00007f25c9375a28 @value=4, @next_node=#<Node:0x00007f25c9376860 @value=nil, @next_node=#<Node:0x00007f25c9376810 @value=nil, @next_node=#<Node:0x00007f25c93767e8 @value=nil, @next_node=#<Node:0x00007f25c93766f8 @value=777, @next_node=nil>>>>>>>>>
 nil
 "( 10 ) => ( 55 ) => ( 3 ) => ( nil ) => ( nil ) => ( nil ) => ( 4 ) => ( nil ) => ( nil ) => ( nil ) => ( 777 ) => nil"
 ```
