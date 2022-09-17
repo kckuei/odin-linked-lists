@@ -22,3 +22,11 @@ p list.remove_at(1)
 p list.to_s
 p list.remove_at(0)
 p list.to_s
+p list.insert_at(777, 10)
+p list.to_s
+p list.size
+p list.insert_at(4, 6)
+p list.insert_at(3, 2)
+p list.insert_at(55, 1)
+p list.insert_at(10, 0)
+p list.to_s

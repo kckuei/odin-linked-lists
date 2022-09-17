@@ -108,17 +108,47 @@ class LinkedList
   end
 
   def to_s
-    # The format should be: `( value ) -you> ( value ) -> ( value ) -> nil`
     str = ''
     current = @head
     until current.nil?
-      str << "( #{current.value} ) => "
+      str << if current.value.nil?
+               '( nil ) => '
+             else
+               "( #{current.value} ) => "
+             end
       current = current.next_node
     end
     str << 'nil'
   end
 
-  def insert_at(value, index); end
+  def insert_at(value, index)
+    if @head.nil?
+      @head = Node.new(value)
+      return
+    end
+
+    if index.zero?
+      node = Node.new(value)
+      node.next_node = @head.next_node
+      @head = node
+      return
+    end
+
+    previous = current = @head
+    i = 0
+    loop do
+      break if index == i
+
+      append(nil) if current.next_node.nil?
+
+      previous = current
+      current = current.next_node
+      i += 1
+    end
+    node = Node.new(value)
+    previous.next_node = node
+    node.next_node = current.next_node
+  end
 
   def remove_at(index)
     return nil if @head.nil?
